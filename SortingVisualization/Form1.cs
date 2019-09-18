@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Algorithm;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SortingVisualization
@@ -13,25 +16,41 @@ namespace SortingVisualization
             InitializeComponent();
         }
 
-        private void BtnStart_Click(object sender, System.EventArgs e)
+        private void btnBubbkeSort_Click(object sender, EventArgs e)
         {
-
+            var bubble = new BubbleSort<SortedItem>(items);
+            bubble.CompareEvent += Bubble_CompareEvent;
+            bubble.SwopEvent += Bubble_SwopEvent;
+            bubble.Sort();
         }
 
-        private void BtnAdd_Click(object sender, System.EventArgs e)
+        private void Bubble_SwopEvent(object sender, Tuple<SortedItem, SortedItem> e)
+        {
+            var temp = e.Item1.Value;
+            e.Item1.SetNewValue(e.Item2.Value);
+            e.Item2.SetNewValue(temp);
+        }
+
+        private void Bubble_CompareEvent(object sender, Tuple<SortedItem, SortedItem> e)
+        {
+            e.Item1.SetColor(Color.Red);
+            e.Item2.SetColor(Color.Green);
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             if (int.TryParse(txtAdd.Text, out int value))
             {
-                var item = new SortedItem(value);
+                var item = new SortedItem(value, items.Count);
                 items.Add(item);
-                panel1.Controls.Add(item.ProgressBar);
-                panel1.Controls.Add(item.Label);
+                panelItems.Controls.Add(item.ProgressBar);
+                panelItems.Controls.Add(item.Label);
             }
 
             txtAdd.Text = string.Empty;
         }
 
-        private void BtnFill_Click(object sender, System.EventArgs e)
+        private void BtnFill_Click(object sender, EventArgs e)
         {
             if (int.TryParse(txtFill.Text, out int value))
             {
@@ -39,10 +58,10 @@ namespace SortingVisualization
 
                 for (int i = 0; i < value; i++)
                 {
-                    var item = new SortedItem(rnd.Next());
+                    var item = new SortedItem(rnd.Next(0, 100), items.Count);
                     items.Add(item);
-                    panel1.Controls.Add(item.ProgressBar);
-                    panel1.Controls.Add(item.Label);
+                    panelItems.Controls.Add(item.ProgressBar);
+                    panelItems.Controls.Add(item.Label);
                 }
             }
 

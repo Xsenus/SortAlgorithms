@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnStart = new System.Windows.Forms.Button();
+            this.btnBubbkeSort = new System.Windows.Forms.Button();
             this.txtAdd = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panelAdd = new System.Windows.Forms.Panel();
@@ -37,20 +37,20 @@
             this.lblFill = new System.Windows.Forms.Label();
             this.txtFill = new System.Windows.Forms.TextBox();
             this.btnFill = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelItems = new System.Windows.Forms.Panel();
             this.panelAdd.SuspendLayout();
             this.panelFill.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnStart
+            // btnBubbkeSort
             // 
-            this.btnStart.Location = new System.Drawing.Point(670, 138);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 1;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.BtnStart_Click);
+            this.btnBubbkeSort.Location = new System.Drawing.Point(12, 138);
+            this.btnBubbkeSort.Name = "btnBubbkeSort";
+            this.btnBubbkeSort.Size = new System.Drawing.Size(75, 23);
+            this.btnBubbkeSort.TabIndex = 1;
+            this.btnBubbkeSort.Text = "BubbleSort";
+            this.btnBubbkeSort.UseVisualStyleBackColor = true;
+            this.btnBubbkeSort.Click += new System.EventHandler(this.btnBubbkeSort_Click);
             // 
             // txtAdd
             // 
@@ -124,23 +124,24 @@
             this.btnFill.UseVisualStyleBackColor = true;
             this.btnFill.Click += new System.EventHandler(this.BtnFill_Click);
             // 
-            // panel1
+            // panelItems
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(395, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 120);
-            this.panel1.TabIndex = 9;
+            this.panelItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelItems.Location = new System.Drawing.Point(395, 12);
+            this.panelItems.Name = "panelItems";
+            this.panelItems.Size = new System.Drawing.Size(350, 120);
+            this.panelItems.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 177);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(757, 470);
+            this.Controls.Add(this.panelItems);
             this.Controls.Add(this.panelFill);
             this.Controls.Add(this.panelAdd);
-            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.btnBubbkeSort);
             this.Name = "Form1";
             this.Text = "Визуализация сортировок";
             this.panelAdd.ResumeLayout(false);
@@ -152,7 +153,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnBubbkeSort;
         private System.Windows.Forms.TextBox txtAdd;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panelAdd;
@@ -161,7 +162,7 @@
         private System.Windows.Forms.Label lblFill;
         private System.Windows.Forms.TextBox txtFill;
         private System.Windows.Forms.Button btnFill;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelItems;
     }
 }
 
