@@ -2,26 +2,42 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace SortingVisualization
 {
-    public partial class Form1 : Form
+    public partial class SortingVisualization : Form
     {
         List<SortedItem> items = new List<SortedItem>();
 
-        public Form1()
+        public SortingVisualization()
         {
             InitializeComponent();
         }
 
         private void btnBubbkeSort_Click(object sender, EventArgs e)
         {
+            RefreshItems();
+
             var bubble = new BubbleSort<SortedItem>(items);
             bubble.CompareEvent += Bubble_CompareEvent;
             bubble.SwopEvent += Bubble_SwopEvent;
-            bubble.Sort();
+
+            var time = bubble.Sort();
+
+            lblTime.Text = $"Время выполнения: {time.Milliseconds} мс";
+            lblComparison.Text = $"Количество сравнений: {bubble.ComparisonCount}";
+            lblSwop.Text = $"Количество обменов: {bubble.SwopCount}";
+        }
+
+        private void RefreshItems()
+        {
+            foreach (var item in items)
+            {
+                item.Refresh();
+            }
+
+            DrawItems(items);
         }
 
         private void Bubble_SwopEvent(object sender, Tuple<SortedItem, SortedItem> e)
@@ -40,14 +56,24 @@ namespace SortingVisualization
             panelItems.Refresh();
         }
 
+        private void DrawItems(List<SortedItem> items)
+        {
+            panelItems.Controls.Clear();
+
+            foreach (var item in items)
+            {
+                panelItems.Controls.Add(item.ProgressBar);
+                panelItems.Controls.Add(item.Label);
+            }
+        }
+
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             if (int.TryParse(txtAdd.Text, out int value))
             {
                 var item = new SortedItem(value, items.Count);
                 items.Add(item);
-                panelItems.Controls.Add(item.ProgressBar);
-                panelItems.Controls.Add(item.Label);
+                RefreshItems();
             }
 
             txtAdd.Text = string.Empty;
@@ -63,10 +89,10 @@ namespace SortingVisualization
                 {
                     var item = new SortedItem(rnd.Next(0, 100), items.Count);
                     items.Add(item);
-                    panelItems.Controls.Add(item.ProgressBar);
-                    panelItems.Controls.Add(item.Label);
                 }
             }
+
+            RefreshItems();
 
             txtFill.Text = string.Empty;
         }

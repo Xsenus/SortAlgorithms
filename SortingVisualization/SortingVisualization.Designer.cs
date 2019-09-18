@@ -1,6 +1,6 @@
 ﻿namespace SortingVisualization
 {
-    partial class Form1
+    partial class SortingVisualization
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -38,6 +38,9 @@
             this.txtFill = new System.Windows.Forms.TextBox();
             this.btnFill = new System.Windows.Forms.Button();
             this.panelItems = new System.Windows.Forms.Panel();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblComparison = new System.Windows.Forms.Label();
+            this.lblSwop = new System.Windows.Forms.Label();
             this.panelAdd.SuspendLayout();
             this.panelFill.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +49,7 @@
             // 
             this.btnBubbkeSort.Location = new System.Drawing.Point(12, 138);
             this.btnBubbkeSort.Name = "btnBubbkeSort";
-            this.btnBubbkeSort.Size = new System.Drawing.Size(75, 23);
+            this.btnBubbkeSort.Size = new System.Drawing.Size(129, 23);
             this.btnBubbkeSort.TabIndex = 1;
             this.btnBubbkeSort.Text = "BubbleSort";
             this.btnBubbkeSort.UseVisualStyleBackColor = true;
@@ -54,16 +57,16 @@
             // 
             // txtAdd
             // 
-            this.txtAdd.Location = new System.Drawing.Point(3, 19);
+            this.txtAdd.Location = new System.Drawing.Point(6, 19);
             this.txtAdd.Name = "txtAdd";
-            this.txtAdd.Size = new System.Drawing.Size(290, 20);
+            this.txtAdd.Size = new System.Drawing.Size(169, 20);
             this.txtAdd.TabIndex = 2;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(299, 18);
+            this.btnAdd.Location = new System.Drawing.Point(181, 19);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 21);
+            this.btnAdd.Size = new System.Drawing.Size(75, 20);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -76,7 +79,7 @@
             this.panelAdd.Controls.Add(this.btnAdd);
             this.panelAdd.Location = new System.Drawing.Point(12, 12);
             this.panelAdd.Name = "panelAdd";
-            this.panelAdd.Size = new System.Drawing.Size(377, 57);
+            this.panelAdd.Size = new System.Drawing.Size(267, 57);
             this.panelAdd.TabIndex = 6;
             // 
             // lblAdd
@@ -95,7 +98,7 @@
             this.panelFill.Controls.Add(this.btnFill);
             this.panelFill.Location = new System.Drawing.Point(12, 75);
             this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(377, 57);
+            this.panelFill.Size = new System.Drawing.Size(267, 57);
             this.panelFill.TabIndex = 8;
             // 
             // lblFill
@@ -103,22 +106,22 @@
             this.lblFill.AutoSize = true;
             this.lblFill.Location = new System.Drawing.Point(3, 3);
             this.lblFill.Name = "lblFill";
-            this.lblFill.Size = new System.Drawing.Size(231, 13);
+            this.lblFill.Size = new System.Drawing.Size(172, 13);
             this.lblFill.TabIndex = 7;
-            this.lblFill.Text = "Заполнить коллекцию случайными числами";
+            this.lblFill.Text = "Заполнить случайными числами";
             // 
             // txtFill
             // 
-            this.txtFill.Location = new System.Drawing.Point(3, 19);
+            this.txtFill.Location = new System.Drawing.Point(6, 19);
             this.txtFill.Name = "txtFill";
-            this.txtFill.Size = new System.Drawing.Size(290, 20);
+            this.txtFill.Size = new System.Drawing.Size(169, 20);
             this.txtFill.TabIndex = 2;
             // 
             // btnFill
             // 
-            this.btnFill.Location = new System.Drawing.Point(299, 18);
+            this.btnFill.Location = new System.Drawing.Point(181, 19);
             this.btnFill.Name = "btnFill";
-            this.btnFill.Size = new System.Drawing.Size(75, 21);
+            this.btnFill.Size = new System.Drawing.Size(75, 20);
             this.btnFill.TabIndex = 3;
             this.btnFill.Text = "Заполнить";
             this.btnFill.UseVisualStyleBackColor = true;
@@ -128,16 +131,46 @@
             // 
             this.panelItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelItems.Location = new System.Drawing.Point(395, 12);
+            this.panelItems.Location = new System.Drawing.Point(285, 12);
             this.panelItems.Name = "panelItems";
-            this.panelItems.Size = new System.Drawing.Size(350, 120);
+            this.panelItems.Size = new System.Drawing.Size(387, 120);
             this.panelItems.TabIndex = 9;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(15, 164);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(108, 13);
+            this.lblTime.TabIndex = 10;
+            this.lblTime.Text = "Время выполнения:";
+            // 
+            // lblComparison
+            // 
+            this.lblComparison.AutoSize = true;
+            this.lblComparison.Location = new System.Drawing.Point(15, 177);
+            this.lblComparison.Name = "lblComparison";
+            this.lblComparison.Size = new System.Drawing.Size(126, 13);
+            this.lblComparison.TabIndex = 11;
+            this.lblComparison.Text = "Количество сравнений:";
+            // 
+            // lblSwop
+            // 
+            this.lblSwop.AutoSize = true;
+            this.lblSwop.Location = new System.Drawing.Point(15, 190);
+            this.lblSwop.Name = "lblSwop";
+            this.lblSwop.Size = new System.Drawing.Size(116, 13);
+            this.lblSwop.TabIndex = 12;
+            this.lblSwop.Text = "Количество обменов:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 470);
+            this.ClientSize = new System.Drawing.Size(684, 217);
+            this.Controls.Add(this.lblSwop);
+            this.Controls.Add(this.lblComparison);
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.panelItems);
             this.Controls.Add(this.panelFill);
             this.Controls.Add(this.panelAdd);
@@ -149,6 +182,7 @@
             this.panelFill.ResumeLayout(false);
             this.panelFill.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -163,6 +197,9 @@
         private System.Windows.Forms.TextBox txtFill;
         private System.Windows.Forms.Button btnFill;
         private System.Windows.Forms.Panel panelItems;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblComparison;
+        private System.Windows.Forms.Label lblSwop;
     }
 }
 

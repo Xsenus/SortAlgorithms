@@ -14,10 +14,13 @@ namespace SortingVisualization
 
         public int Number { get; private set; }
 
+        public int StartNumber { get; private set; }
+
         public SortedItem(int value, int number)
         {
             Value = value;
             Number = number;
+            StartNumber = number;
             ProgressBar = new VerticalProgressBar.VerticalProgressBar();
             Label = new Label();
 
@@ -51,12 +54,9 @@ namespace SortingVisualization
         public void SetPosition(int number)
         {
             Number = number;
-
             var x = number * 20;
-
             ProgressBar.Location = new Point(x, 14);
             ProgressBar.Name = $"ProgressBar{number}";
-
             Label.Name = $"lbl{number}";
             Label.Location = new Point(x, 105);
         }
@@ -76,6 +76,16 @@ namespace SortingVisualization
             {
                 throw new ArgumentException($"obj is not {nameof(SortedItem)}", nameof(obj));
             }
+        }
+
+        public void Refresh()
+        {
+            Number = StartNumber;
+            var x = Number * 20;
+            ProgressBar.Location = new Point(x, 14);
+            ProgressBar.Name = $"ProgressBar{Number}";
+            Label.Name = $"lbl{Number}";
+            Label.Location = new Point(x, 105);
         }
 
         public override string ToString()
