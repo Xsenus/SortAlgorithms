@@ -12,9 +12,12 @@ namespace SortingVisualization
 
         public int Value { get; private set; }
 
+        public int Number { get; private set; }
+
         public SortedItem(int value, int number)
         {
             Value = value;
+            Number = number;
             ProgressBar = new VerticalProgressBar.VerticalProgressBar();
             Label = new Label();
 
@@ -24,12 +27,12 @@ namespace SortingVisualization
             // verticalProgressBar
             // 
             ProgressBar.BorderStyle = VerticalProgressBar.BorderStyles.Classic;
-            ProgressBar.Color = System.Drawing.Color.Blue;
-            ProgressBar.Location = new System.Drawing.Point(x, 14);
+            ProgressBar.Color = Color.Blue;
+            ProgressBar.Location = new Point(x, 14);
             ProgressBar.Maximum = 100;
             ProgressBar.Minimum = 0;
             ProgressBar.Name = $"ProgressBar{number}";
-            ProgressBar.Size = new System.Drawing.Size(16, 88);
+            ProgressBar.Size = new Size(16, 88);
             ProgressBar.Step = 1;
             ProgressBar.Style = VerticalProgressBar.Styles.Solid;
             ProgressBar.TabIndex = number;
@@ -38,18 +41,24 @@ namespace SortingVisualization
             // lbl
             // 
             Label.AutoSize = true;
-            Label.Location = new System.Drawing.Point(x, 105);
+            Label.Location = new Point(x, 105);
             Label.Name = $"lbl{number}";
-            Label.Size = new System.Drawing.Size(13, 13);
+            Label.Size = new Size(13, 13);
             Label.TabIndex = number;
             Label.Text = Value.ToString();
         }
 
-        public void SetNewValue(int value)
+        public void SetPosition(int number)
         {
-            Value = value;
-            ProgressBar.Value = value;
-            Label.Text = value.ToString();
+            Number = number;
+
+            var x = number * 20;
+
+            ProgressBar.Location = new Point(x, 14);
+            ProgressBar.Name = $"ProgressBar{number}";
+
+            Label.Name = $"lbl{number}";
+            Label.Location = new Point(x, 105);
         }
 
         public void SetColor(Color color)
@@ -67,6 +76,11 @@ namespace SortingVisualization
             {
                 throw new ArgumentException($"obj is not {nameof(SortedItem)}", nameof(obj));
             }
+        }
+
+        public override string ToString()
+        {
+            return Value.ToString();
         }
     }
 }

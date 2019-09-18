@@ -26,15 +26,18 @@ namespace SortingVisualization
 
         private void Bubble_SwopEvent(object sender, Tuple<SortedItem, SortedItem> e)
         {
-            var temp = e.Item1.Value;
-            e.Item1.SetNewValue(e.Item2.Value);
-            e.Item2.SetNewValue(temp);
+            var temp = e.Item1.Number;
+            e.Item1.SetPosition(e.Item2.Number);
+            e.Item2.SetPosition(temp);
+
+            panelItems.Refresh();
         }
 
         private void Bubble_CompareEvent(object sender, Tuple<SortedItem, SortedItem> e)
         {
             e.Item1.SetColor(Color.Red);
             e.Item2.SetColor(Color.Green);
+            panelItems.Refresh();
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
