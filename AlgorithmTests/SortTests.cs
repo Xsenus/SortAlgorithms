@@ -127,5 +127,22 @@ namespace Algorithm.Tests
                 Assert.AreEqual(sorted[i], tree.Items[i]);
             }
         }
+
+        [TestMethod()]
+        public void HeapSortTest()
+        {
+            // arrange
+            var heap = new HeapSort<int>();
+            heap.Items.AddRange(items);
+
+            // act
+            heap.Sort();
+
+            // assert
+            for (int i = 0; i < items.Count; i++)
+            {
+                Assert.AreEqual(sorted[i], heap.Items[i]);
+            }
+        }
     }
 }

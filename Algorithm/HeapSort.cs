@@ -3,12 +3,12 @@ using System;
 
 namespace Algorithm
 {
-    public class TreeSort<T> : AlgorithmBase<T> where T : IComparable 
+    public class HeapSort<T> : AlgorithmBase<T> where T : IComparable
     {
         protected override void MakeSort()
         {
-            var tree = new Tree<T>(Items);
-            var sorted = tree.Inorder();
+            var heap = new Heap<T>(Items);
+            var sorted = heap.Order();
             Items = sorted;
         }
     }
