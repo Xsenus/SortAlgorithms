@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace Algorithm
 {
-    public class RadixSort<T> : AlgorithmBase<T> where T : IComparable
+    public class LSDRadixSort<T> : AlgorithmBase<T> where T : IComparable
     {
-        public RadixSort() { }
+        public LSDRadixSort() { }
 
-        public RadixSort(IEnumerable<T> items) : base(items) { }
+        public LSDRadixSort(IEnumerable<T> items) : base(items) { }
         
         protected override void MakeSort()
         {

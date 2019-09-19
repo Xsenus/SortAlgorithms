@@ -48,8 +48,9 @@
     <Compile Include="GnomeSort.cs" />
     <Compile Include="HeapSort.cs" />
     <Compile Include="InsertSort.cs" />
+    <Compile Include="MSDRadixSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RadixSort.cs" />
+    <Compile Include="LSDRadixSort.cs" />
     <Compile Include="SelectionSort.cs" />
     <Compile Include="ShellSort.cs" />
     <Compile Include="TreeSort.cs" />
