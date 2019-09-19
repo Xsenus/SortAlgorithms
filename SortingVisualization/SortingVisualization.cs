@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SortingVisualization
@@ -15,19 +16,65 @@ namespace SortingVisualization
             InitializeComponent();
         }
 
-        private void btnBubbkeSort_Click(object sender, EventArgs e)
+        private void BtnClick(AlgorithmBase<SortedItem> algorithm)
         {
             RefreshItems();
 
-            var bubble = new BubbleSort<SortedItem>(items);
-            bubble.CompareEvent += Bubble_CompareEvent;
-            bubble.SwopEvent += Bubble_SwopEvent;
+            for (int i = 0; i < algorithm.Items.Count; i++)
+            {
+                algorithm.Items[i].SetPosition(i);
+            }
 
-            var time = bubble.Sort();
+            algorithm.CompareEvent += Algorithm_CompareEvent;
+            algorithm.SwopEvent += Algorithm_SwopEvent;
+
+            var time = algorithm.Sort();
 
             lblTime.Text = $"Время выполнения: {time.Milliseconds} мс";
-            lblComparison.Text = $"Количество сравнений: {bubble.ComparisonCount}";
-            lblSwop.Text = $"Количество обменов: {bubble.SwopCount}";
+            lblComparison.Text = $"Количество сравнений: {algorithm.ComparisonCount}";
+            lblSwop.Text = $"Количество обменов: {algorithm.SwopCount}";
+        }
+
+        private void BtnBubbleSort_Click(object sender, EventArgs e)
+        {            
+            var bubble = new BubbleSort<SortedItem>(items);
+            BtnClick(bubble);
+        }
+
+        private void BtnCocktailSort_Click(object sender, EventArgs e)
+        {
+            var cocktail = new CocktailSort<SortedItem>(items);
+            BtnClick(cocktail);
+        }
+
+        private void BtnInsertSort_Click(object sender, EventArgs e)
+        {
+            var insert = new InsertSort<SortedItem>(items);
+            BtnClick(insert);
+        }
+        
+        private void BtnShellSort_Click(object sender, EventArgs e)
+        {
+            var shell = new ShellSort<SortedItem>(items);
+            BtnClick(shell);
+        }
+
+        private void BtnTreeSort_Click(object sender, EventArgs e)
+        {
+            var tree = new TreeSort<SortedItem>(items);
+            BtnClick(tree);
+        }
+
+        private void BtnHeapSort_Click(object sender, EventArgs e)
+        {
+            var heap = new HeapSort<SortedItem>(items);
+            BtnClick(heap);
+        }
+
+        private void BtnSelectionSort_Click(object sender, EventArgs e)
+        {
+            var selection = new SelectionSort<SortedItem>(items);
+            BtnClick(selection);
         }
 
         private void RefreshItems()
@@ -40,7 +87,7 @@ namespace SortingVisualization
             DrawItems(items);
         }
 
-        private void Bubble_SwopEvent(object sender, Tuple<SortedItem, SortedItem> e)
+        private void Algorithm_SwopEvent(object sender, Tuple<SortedItem, SortedItem> e)
         {
             var temp = e.Item1.Number;
             e.Item1.SetPosition(e.Item2.Number);
@@ -49,10 +96,16 @@ namespace SortingVisualization
             panelItems.Refresh();
         }
 
-        private void Bubble_CompareEvent(object sender, Tuple<SortedItem, SortedItem> e)
+        private void Algorithm_CompareEvent(object sender, Tuple<SortedItem, SortedItem> e)
         {
             e.Item1.SetColor(Color.Red);
             e.Item2.SetColor(Color.Green);
+            panelItems.Refresh();
+
+            Thread.Sleep(100);
+            
+            e.Item1.SetColor(Color.Blue);
+            e.Item2.SetColor(Color.Blue);
             panelItems.Refresh();
         }
 

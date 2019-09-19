@@ -132,8 +132,7 @@ namespace Algorithm.Tests
         public void HeapSortTest()
         {
             // arrange
-            var heap = new HeapSort<int>();
-            heap.Items.AddRange(items);
+            var heap = new HeapSort<int>(items);
 
             // act
             heap.Sort();
@@ -142,6 +141,23 @@ namespace Algorithm.Tests
             for (int i = 0; i < items.Count; i++)
             {
                 Assert.AreEqual(sorted[i], heap.Items[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void SelectionSortTest()
+        {
+            // arrange
+            var selection = new SelectionSort<int>();
+            selection.Items.AddRange(items);
+
+            // act
+            selection.Sort();
+
+            // assert
+            for (int i = 0; i < items.Count; i++)
+            {
+                Assert.AreEqual(sorted[i], selection.Items[i]);
             }
         }
     }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBubbkeSort = new System.Windows.Forms.Button();
+            this.btnBubbleSort = new System.Windows.Forms.Button();
             this.txtAdd = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panelAdd = new System.Windows.Forms.Panel();
@@ -41,19 +41,25 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.lblComparison = new System.Windows.Forms.Label();
             this.lblSwop = new System.Windows.Forms.Label();
+            this.btnCocktailSort = new System.Windows.Forms.Button();
+            this.btnInsertSort = new System.Windows.Forms.Button();
+            this.btnShellSort = new System.Windows.Forms.Button();
+            this.btnTreeSort = new System.Windows.Forms.Button();
+            this.btnHeapSort = new System.Windows.Forms.Button();
+            this.btnSelectionSort = new System.Windows.Forms.Button();
             this.panelAdd.SuspendLayout();
             this.panelFill.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnBubbkeSort
+            // btnBubbleSort
             // 
-            this.btnBubbkeSort.Location = new System.Drawing.Point(12, 138);
-            this.btnBubbkeSort.Name = "btnBubbkeSort";
-            this.btnBubbkeSort.Size = new System.Drawing.Size(129, 23);
-            this.btnBubbkeSort.TabIndex = 1;
-            this.btnBubbkeSort.Text = "BubbleSort";
-            this.btnBubbkeSort.UseVisualStyleBackColor = true;
-            this.btnBubbkeSort.Click += new System.EventHandler(this.btnBubbkeSort_Click);
+            this.btnBubbleSort.Location = new System.Drawing.Point(12, 138);
+            this.btnBubbleSort.Name = "btnBubbleSort";
+            this.btnBubbleSort.Size = new System.Drawing.Size(100, 23);
+            this.btnBubbleSort.TabIndex = 1;
+            this.btnBubbleSort.Text = "BubbleSort";
+            this.btnBubbleSort.UseVisualStyleBackColor = true;
+            this.btnBubbleSort.Click += new System.EventHandler(this.BtnBubbleSort_Click);
             // 
             // txtAdd
             // 
@@ -133,7 +139,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelItems.Location = new System.Drawing.Point(285, 12);
             this.panelItems.Name = "panelItems";
-            this.panelItems.Size = new System.Drawing.Size(387, 120);
+            this.panelItems.Size = new System.Drawing.Size(462, 120);
             this.panelItems.TabIndex = 9;
             // 
             // lblTime
@@ -163,19 +169,85 @@
             this.lblSwop.TabIndex = 12;
             this.lblSwop.Text = "Количество обменов:";
             // 
-            // Form1
+            // btnCocktailSort
+            // 
+            this.btnCocktailSort.Location = new System.Drawing.Point(118, 138);
+            this.btnCocktailSort.Name = "btnCocktailSort";
+            this.btnCocktailSort.Size = new System.Drawing.Size(100, 23);
+            this.btnCocktailSort.TabIndex = 13;
+            this.btnCocktailSort.Text = "CocktailSort";
+            this.btnCocktailSort.UseVisualStyleBackColor = true;
+            this.btnCocktailSort.Click += new System.EventHandler(this.BtnCocktailSort_Click);
+            // 
+            // btnInsertSort
+            // 
+            this.btnInsertSort.Location = new System.Drawing.Point(224, 138);
+            this.btnInsertSort.Name = "btnInsertSort";
+            this.btnInsertSort.Size = new System.Drawing.Size(100, 23);
+            this.btnInsertSort.TabIndex = 14;
+            this.btnInsertSort.Text = "InsertSort";
+            this.btnInsertSort.UseVisualStyleBackColor = true;
+            this.btnInsertSort.Click += new System.EventHandler(this.BtnInsertSort_Click);
+            // 
+            // btnShellSort
+            // 
+            this.btnShellSort.Location = new System.Drawing.Point(330, 138);
+            this.btnShellSort.Name = "btnShellSort";
+            this.btnShellSort.Size = new System.Drawing.Size(100, 23);
+            this.btnShellSort.TabIndex = 15;
+            this.btnShellSort.Text = "ShellSort";
+            this.btnShellSort.UseVisualStyleBackColor = true;
+            this.btnShellSort.Click += new System.EventHandler(this.BtnShellSort_Click);
+            // 
+            // btnTreeSort
+            // 
+            this.btnTreeSort.Location = new System.Drawing.Point(436, 138);
+            this.btnTreeSort.Name = "btnTreeSort";
+            this.btnTreeSort.Size = new System.Drawing.Size(100, 23);
+            this.btnTreeSort.TabIndex = 16;
+            this.btnTreeSort.Text = "TreeSort";
+            this.btnTreeSort.UseVisualStyleBackColor = true;
+            this.btnTreeSort.Click += new System.EventHandler(this.BtnTreeSort_Click);
+            // 
+            // btnHeapSort
+            // 
+            this.btnHeapSort.Location = new System.Drawing.Point(542, 138);
+            this.btnHeapSort.Name = "btnHeapSort";
+            this.btnHeapSort.Size = new System.Drawing.Size(100, 23);
+            this.btnHeapSort.TabIndex = 17;
+            this.btnHeapSort.Text = "HeapSort";
+            this.btnHeapSort.UseVisualStyleBackColor = true;
+            this.btnHeapSort.Click += new System.EventHandler(this.BtnHeapSort_Click);
+            // 
+            // btnSelectionSort
+            // 
+            this.btnSelectionSort.Location = new System.Drawing.Point(648, 138);
+            this.btnSelectionSort.Name = "btnSelectionSort";
+            this.btnSelectionSort.Size = new System.Drawing.Size(100, 23);
+            this.btnSelectionSort.TabIndex = 18;
+            this.btnSelectionSort.Text = "SelectionSort";
+            this.btnSelectionSort.UseVisualStyleBackColor = true;
+            this.btnSelectionSort.Click += new System.EventHandler(this.BtnSelectionSort_Click);
+            // 
+            // SortingVisualization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 217);
+            this.ClientSize = new System.Drawing.Size(759, 217);
+            this.Controls.Add(this.btnSelectionSort);
+            this.Controls.Add(this.btnHeapSort);
+            this.Controls.Add(this.btnTreeSort);
+            this.Controls.Add(this.btnShellSort);
+            this.Controls.Add(this.btnInsertSort);
+            this.Controls.Add(this.btnCocktailSort);
             this.Controls.Add(this.lblSwop);
             this.Controls.Add(this.lblComparison);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.panelItems);
             this.Controls.Add(this.panelFill);
             this.Controls.Add(this.panelAdd);
-            this.Controls.Add(this.btnBubbkeSort);
-            this.Name = "Form1";
+            this.Controls.Add(this.btnBubbleSort);
+            this.Name = "SortingVisualization";
             this.Text = "Визуализация сортировок";
             this.panelAdd.ResumeLayout(false);
             this.panelAdd.PerformLayout();
@@ -187,7 +259,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnBubbkeSort;
+        private System.Windows.Forms.Button btnBubbleSort;
         private System.Windows.Forms.TextBox txtAdd;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panelAdd;
@@ -200,6 +272,12 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblComparison;
         private System.Windows.Forms.Label lblSwop;
+        private System.Windows.Forms.Button btnCocktailSort;
+        private System.Windows.Forms.Button btnInsertSort;
+        private System.Windows.Forms.Button btnShellSort;
+        private System.Windows.Forms.Button btnTreeSort;
+        private System.Windows.Forms.Button btnHeapSort;
+        private System.Windows.Forms.Button btnSelectionSort;
     }
 }
 
