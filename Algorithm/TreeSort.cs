@@ -1,20 +1,105 @@
 ﻿using Algorithm.DataStructures;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithm
 {
-    public class TreeSort<T> : AlgorithmBase<T> where T : IComparable 
+    public class TreeSort<T> : AlgorithmBase<T> where T : IComparable
     {
+        public Node<T> Root { get; private set; }
+
+        public int Count { get; set; }
+
         public TreeSort() { }
 
-        public TreeSort(IEnumerable<T> items) : base(items) { }
+        public TreeSort(IEnumerable<T> items)
+        {
+            var list = items.ToList();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                var item = list[i];
+                Items.Add(item);
+
+                var node = new Node<T>(item, i);
+                Add(node);
+            }
+        }
+
+        private void Add(Node<T> node)
+        {
+            if (Root == null)
+            {
+                Root = node;
+                Count = 1;
+                return;
+            }
+
+            Add(Root, node);
+            Count++;
+        }
+
+        private void Add(Node<T> node, Node<T> newNode)
+        {
+            if (Compare(node.Data, newNode.Data) == 1)
+            {
+                if (node.Left == null)
+                {
+                    node.Left = newNode;
+                }
+                else
+                {
+                    Add(node.Left, newNode);
+                }
+            }
+            else
+            {
+                if (node.Right == null)
+                {
+                    node.Right = newNode;
+                }
+                else
+                {
+                    Add(node.Right, newNode);
+                }
+            }
+        }
 
         protected override void MakeSort()
         {
-            var tree = new Tree<T>(Items);
-            var sorted = tree.Inorder();
-            Items = sorted;
+            var result = Inorder(Root);
+
+            Items.AddRange(result.Select(i => i.Data));
+
+            for (int i = 0; i < result.Count; i++)
+            {
+                Swop(i, result.Count + i);
+            }
+
+            Items.RemoveRange(result.Count, result.Count);
+        }
+
+        private List<Node<T>> Inorder(Node<T> node)
+        {
+            var list = new List<Node<T>>();
+
+            if (node != null)
+            {
+                if (node.Left != null)
+                {
+                    list.AddRange(Inorder(node.Left));
+                }
+
+                list.Add(node);
+
+                if (node.Right != null)
+                {
+                    list.AddRange(Inorder(node.Right));
+                }
+            }
+
+            return list;
         }
     }
 }

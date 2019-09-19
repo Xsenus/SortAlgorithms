@@ -45,7 +45,7 @@
     <Compile Include="BubbleSort.cs" />
     <Compile Include="CocktailSort.cs" />
     <Compile Include="DataStructures\Node.cs" />
-    <Compile Include="DataStructures\Tree.cs" />
+    <Compile Include="GnomeSort.cs" />
     <Compile Include="HeapSort.cs" />
     <Compile Include="InsertSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

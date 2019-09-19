@@ -77,6 +77,12 @@ namespace SortingVisualization
             BtnClick(selection);
         }
 
+        private void BtnGnomeSort_Click(object sender, EventArgs e)
+        {
+            var gnome = new GnomeSort<SortedItem>(items);
+            BtnClick(gnome);
+        }
+
         private void RefreshItems()
         {
             foreach (var item in items)
