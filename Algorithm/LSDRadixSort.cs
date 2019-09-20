@@ -31,14 +31,14 @@ namespace Algorithm
                     groups[value].Add(item);
                 }
 
-                Items.Clear();
-
+                var j = 0;
                 // Выполняется сборка элементов.
                 foreach (var group in groups)
                 {
                     foreach (var item in group)
                     {
-                        Items.Add(item);
+                        Set(j, item);
+                        j++;
                     }
                 }
 
@@ -65,7 +65,7 @@ namespace Algorithm
                  * var l = Convert.ToInt32(Math.Log10(item.GetHashCode() + 1));
                  */
 
-                var l = GetHashCode().ToString().Length;
+                var l = item.GetHashCode().ToString().Length;
 
                 if (l > lenght)
                 {

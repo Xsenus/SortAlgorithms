@@ -86,6 +86,24 @@ namespace SortingVisualization
             BtnClick(gnome);
         }
 
+        private void BtnLSDRadixSort_Click(object sender, EventArgs e)
+        {
+            var lsd = new LSDRadixSort<SortedItem>(items);
+            BtnClick(lsd);
+        }
+
+        private void BtnMSDRadixSort_Click(object sender, EventArgs e)
+        {
+            var msd = new MSDRadixSort<SortedItem>(items);
+            BtnClick(msd);
+        }
+
+        private void BtnMergeSort_Click(object sender, EventArgs e)
+        {
+            var merge = new MergeSort<SortedItem>(items);
+            BtnClick(merge);
+        }
+
         private void RefreshItems()
         {
             foreach (var item in items)

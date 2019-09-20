@@ -49,6 +49,10 @@
             this.btnHeapSort = new System.Windows.Forms.Button();
             this.btnSelectionSort = new System.Windows.Forms.Button();
             this.btnGnomeSort = new System.Windows.Forms.Button();
+            this.btnLSDRadixSort = new System.Windows.Forms.Button();
+            this.btnMSDRadixSort = new System.Windows.Forms.Button();
+            this.btnMergeSort = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panelAdd.SuspendLayout();
             this.panelFill.SuspendLayout();
             this.SuspendLayout();
@@ -179,10 +183,41 @@
             this.btnGnomeSort.UseVisualStyleBackColor = true;
             this.btnGnomeSort.Click += new System.EventHandler(this.BtnGnomeSort_Click);
             // 
+            // btnLSDRadixSort
+            // 
+            resources.ApplyResources(this.btnLSDRadixSort, "btnLSDRadixSort");
+            this.btnLSDRadixSort.Name = "btnLSDRadixSort";
+            this.btnLSDRadixSort.UseVisualStyleBackColor = true;
+            this.btnLSDRadixSort.Click += new System.EventHandler(this.BtnLSDRadixSort_Click);
+            // 
+            // btnMSDRadixSort
+            // 
+            resources.ApplyResources(this.btnMSDRadixSort, "btnMSDRadixSort");
+            this.btnMSDRadixSort.Name = "btnMSDRadixSort";
+            this.btnMSDRadixSort.UseVisualStyleBackColor = true;
+            this.btnMSDRadixSort.Click += new System.EventHandler(this.BtnMSDRadixSort_Click);
+            // 
+            // btnMergeSort
+            // 
+            resources.ApplyResources(this.btnMergeSort, "btnMergeSort");
+            this.btnMergeSort.Name = "btnMergeSort";
+            this.btnMergeSort.UseVisualStyleBackColor = true;
+            this.btnMergeSort.Click += new System.EventHandler(this.BtnMergeSort_Click);
+            // 
+            // button4
+            // 
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // SortingVisualization
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnMergeSort);
+            this.Controls.Add(this.btnMSDRadixSort);
+            this.Controls.Add(this.btnLSDRadixSort);
             this.Controls.Add(this.btnGnomeSort);
             this.Controls.Add(this.btnSelectionSort);
             this.Controls.Add(this.btnHeapSort);
@@ -228,6 +263,10 @@
         private System.Windows.Forms.Button btnHeapSort;
         private System.Windows.Forms.Button btnSelectionSort;
         private System.Windows.Forms.Button btnGnomeSort;
+        private System.Windows.Forms.Button btnLSDRadixSort;
+        private System.Windows.Forms.Button btnMSDRadixSort;
+        private System.Windows.Forms.Button btnMergeSort;
+        private System.Windows.Forms.Button button4;
     }
 }
 
