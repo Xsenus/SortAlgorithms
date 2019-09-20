@@ -36,7 +36,6 @@
             this.lblAdd = new System.Windows.Forms.Label();
             this.panelFill = new System.Windows.Forms.Panel();
             this.lblFill = new System.Windows.Forms.Label();
-            this.txtFill = new System.Windows.Forms.TextBox();
             this.btnFill = new System.Windows.Forms.Button();
             this.panelItems = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
@@ -52,7 +51,8 @@
             this.btnLSDRadixSort = new System.Windows.Forms.Button();
             this.btnMSDRadixSort = new System.Windows.Forms.Button();
             this.btnMergeSort = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnQuickSort = new System.Windows.Forms.Button();
+            this.txtFill = new System.Windows.Forms.TextBox();
             this.panelAdd.SuspendLayout();
             this.panelFill.SuspendLayout();
             this.SuspendLayout();
@@ -91,8 +91,8 @@
             // 
             // panelFill
             // 
-            this.panelFill.Controls.Add(this.lblFill);
             this.panelFill.Controls.Add(this.txtFill);
+            this.panelFill.Controls.Add(this.lblFill);
             this.panelFill.Controls.Add(this.btnFill);
             resources.ApplyResources(this.panelFill, "panelFill");
             this.panelFill.Name = "panelFill";
@@ -101,11 +101,6 @@
             // 
             resources.ApplyResources(this.lblFill, "lblFill");
             this.lblFill.Name = "lblFill";
-            // 
-            // txtFill
-            // 
-            resources.ApplyResources(this.txtFill, "txtFill");
-            this.txtFill.Name = "txtFill";
             // 
             // btnFill
             // 
@@ -204,17 +199,23 @@
             this.btnMergeSort.UseVisualStyleBackColor = true;
             this.btnMergeSort.Click += new System.EventHandler(this.BtnMergeSort_Click);
             // 
-            // button4
+            // btnQuickSort
             // 
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btnQuickSort, "btnQuickSort");
+            this.btnQuickSort.Name = "btnQuickSort";
+            this.btnQuickSort.UseVisualStyleBackColor = true;
+            this.btnQuickSort.Click += new System.EventHandler(this.BtnQuickSort_Click);
+            // 
+            // txtFill
+            // 
+            resources.ApplyResources(this.txtFill, "txtFill");
+            this.txtFill.Name = "txtFill";
             // 
             // SortingVisualization
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnQuickSort);
             this.Controls.Add(this.btnMergeSort);
             this.Controls.Add(this.btnMSDRadixSort);
             this.Controls.Add(this.btnLSDRadixSort);
@@ -232,6 +233,9 @@
             this.Controls.Add(this.panelFill);
             this.Controls.Add(this.panelAdd);
             this.Controls.Add(this.btnBubbleSort);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SortingVisualization";
             this.panelAdd.ResumeLayout(false);
             this.panelAdd.PerformLayout();
@@ -250,7 +254,6 @@
         private System.Windows.Forms.Label lblAdd;
         private System.Windows.Forms.Panel panelFill;
         private System.Windows.Forms.Label lblFill;
-        private System.Windows.Forms.TextBox txtFill;
         private System.Windows.Forms.Button btnFill;
         private System.Windows.Forms.Panel panelItems;
         private System.Windows.Forms.Label lblTime;
@@ -266,7 +269,8 @@
         private System.Windows.Forms.Button btnLSDRadixSort;
         private System.Windows.Forms.Button btnMSDRadixSort;
         private System.Windows.Forms.Button btnMergeSort;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnQuickSort;
+        private System.Windows.Forms.TextBox txtFill;
     }
 }
 

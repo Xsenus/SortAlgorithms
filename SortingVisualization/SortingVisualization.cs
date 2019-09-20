@@ -104,6 +104,12 @@ namespace SortingVisualization
             BtnClick(merge);
         }
 
+        private void BtnQuickSort_Click(object sender, EventArgs e)
+        {
+            var quick = new QuickSort<SortedItem>(items);
+            BtnClick(quick);
+        }
+
         private void RefreshItems()
         {
             foreach (var item in items)
@@ -180,20 +186,28 @@ namespace SortingVisualization
 
         private void BtnFill_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtFill.Text, out int value))
-            {
-                var rnd = new Random();
+            //if (int.TryParse(txtFill.Text, out int value))
+            //{
+            //    var rnd = new Random();
 
-                for (int i = 0; i < value; i++)
-                {
-                    var item = new SortedItem(rnd.Next(0, 100), items.Count);
-                    items.Add(item);
-                }
+            //    for (int i = 0; i < value; i++)
+            //    {
+            //        var item = new SortedItem(rnd.Next(0, 100), items.Count);
+            //        items.Add(item);
+            //    }
+            //}
+
+            var rnd = new Random();
+
+            for (int i = 0; i < 27; i++)
+            {
+                var item = new SortedItem(rnd.Next(0, 100), items.Count);
+                items.Add(item);
             }
 
             RefreshItems();
 
-            txtFill.Text = string.Empty;
+            //txtFill.Text = string.Empty;
         }
     }
 }
